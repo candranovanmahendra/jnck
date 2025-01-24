@@ -1,2 +1,2 @@
-global.creator = "Skyzopedia"
-global.apikey = ["skyzo55"]
+global.creator = "gibrane"
+global.apikey = ["canx"]
