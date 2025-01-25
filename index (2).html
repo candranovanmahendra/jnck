@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dexzu API Documentation - Your Gateway to Easy Integration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .api-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .api-item .method {
+            color: #28a745;
+            font-weight: 600;
+        }
+        .api-item .try-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .api-item .try-btn a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .api-item .try-btn:hover {
+            background-color: #0056b3;
+        }
+        .dark-theme {
+            background-color: #212529;
+            color: #ccc;
+        }
+        .dark-theme .section h2 {
+            color: #fff;
+            border-color: #007bff;
+        }
+        .dark-theme .api-item {
+            background-color: #343a40;
+            border-color: #444;
+        }
+        .dark-theme .api-item .method {
+            color: #28a745;
+        }
+        .dark-theme .api-item .try-btn {
+            background-color: #007bff;
+        }
+        .dark-theme .api-item .try-btn:hover {
+            background-color: #0056b3;
+        }
+        .theme-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            border-radius: 50%;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+        }
+        input:checked + .slider {
+            background-color: #007bff;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-switcher">
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    
+    <div class="container">
+        <div class="section">
+            <h2>Orderkuota</h2>
+            <div class="api-item">
+                <span class="method">GET</span>
+                <span>Create Payment</span>
+                <button class="try-btn"><a href="https://dexzu.my.id/api/orkut/createpayment?apikey=&amount=&codeqr=">CHECK</a></button>
+            </div>
+            <div class="api-item">
+                <span class="method">GET</span>
+                <span>Cek Status Payment</span>
+                <button class="try-btn"><a href="https://dexzu.my.id/api/orkut/cekstatus?apikey=&merchant=&keyorkut=">CHECK</a></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle theme and store preference in localStorage
+        function toggleTheme() {
+            const isDark = document.body.classList.toggle('dark-theme');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // Check if a theme preference is saved in localStorage and apply it
+        (function applySavedTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                document.getElementById('theme-toggle').checked = true;
+            }
+        })();
+    </script>
+</body>
+</html>
