@@ -1,2 +1,2 @@
 global.creator = "gibrane"
-global.apikey = ["canx"]
+global.apikey = ["canx","donx"]
